@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <title>Turin Electronics Research Group</title>
+
+    <style>
+        /* Schermata che copre tutto il sito */
+        #intro {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+            background-color: #212529;
+
+            transition:
+                opacity 0.8s ease,
+                visibility 0.8s ease;
+        }
+
+        /* Contenitore di tutti i testi dell’intro */
+        .intro-content {
+            text-align: center;
+        }
+
+        /* Riga contenente Torino ed Electronics */
+        .intro-title {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        /* I testi partono invisibili */
+        .torino,
+        .electronics,
+        .research-group {
+            display: inline-block;
+            opacity: 0;
+        }
+
+        /* Torino entra dall’alto */
+        .torino {
+            animation: fromTop 1s ease-out forwards;
+        }
+
+        /* Electronics entra dal basso */
+        .electronics {
+            color: #0dcaf0;
+            animation: fromBottom 1s ease-out forwards;
+        }
+
+        /* Research Group entra da sinistra */
+        .research-group {
+            margin-top: 12px;
+
+            font-size: clamp(1rem, 3vw, 1.8rem);
+            letter-spacing: 0.3rem;
+            text-transform: uppercase;
+
+            animation: fromLeft 1s ease-out 0.6s forwards;
+        }
+
+        /* Posizione iniziale di Torino */
+        @keyframes fromTop {
+            from {
+                opacity: 0;
+                transform: translateY(-150px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Posizione iniziale di Electronics */
+        @keyframes fromBottom {
+            from {
+                opacity: 0;
+                transform: translateY(150px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Posizione iniziale di Research Group */
+        @keyframes fromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-250px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Classe aggiunta da JavaScript */
+        #intro.intro-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            
+        }
+        
+        #people {
+    background-color: #171a1d;
+    scroll-margin-top: 70px;}
+
+    .person-card {
+    background-color: #212529;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;}
+
+    .person-card:hover {
+    transform: translateY(-8px);
+    border-color: #0dcaf0;}
+
+    .person-avatar {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #0dcaf0;
+    color: #212529;
+    border-radius: 50%;
+
+    font-size: 1.6rem;
+    font-weight: bold;}
+    
+    
+    /* RESEARCH SECTION */
+    #research {
+    background-color: #212529;
+    scroll-margin-top: 70px;
+    }
+
+    .research-card {
+    background-color: #171a1d;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    .research-card:hover {
+    transform: translateY(-8px);
+    border-color: #0dcaf0;
+    }
+
+    .research-number {
+    margin-bottom: 20px;
+
+    color: #0dcaf0;
+    font-size: 2rem;
+    font-weight: bold;
+    }
+   
+    
+    /* Il menu viene posizionato rispetto alla navbar */
+    .navbar .container {
+    position: relative;
+    }
+
+    /* Pulsante burger */
+    .burger-button {
+    padding: 8px;
+    border: 0;
+    }
+
+    /* Contenitore delle tre linee */
+    .burger-icon {
+    width: 26px;
+    height: 18px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+
+    /* Singole linee */
+    .burger-icon span {
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    background-color: white;
+    border-radius: 2px;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+    }   
+
+    /* Prima linea: forma metà della X */
+    .burger-button[aria-expanded="true"]
+    .burger-icon span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    }
+
+    /* Seconda linea: scompare */
+    .burger-button[aria-expanded="true"]
+    .burger-icon span:nth-child(2) {
+    opacity: 0;
+    }
+
+    /* Terza linea: forma l'altra metà della X */
+    .burger-button[aria-expanded="true"]    
+    .burger-icon span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Riquadro del menu */
+    #mainMenu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 12px;
+
+    width: 230px;
+    padding: 12px;
+
+    flex-grow: 0;
+    flex-basis: auto;
+
+    background-color: #212529;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Collegamenti del menu */
+    #mainMenu .nav-link {
+    padding: 10px 12px;
+    border-radius: 8px;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease;
+    }
+
+    #mainMenu .nav-link:hover {
+    color: #0dcaf0;
+    background-color: rgba(13, 202, 240, 0.1);
+    }
+    </style>
+</head>
+
+<body class="bg-dark text-white">
+
+    <!-- Animazione iniziale -->
+    <div id="intro">
+        <div class="intro-content">
+
+            <div class="intro-title">
+                <span class="torino">Torino</span>
+                <span class="electronics">Electronics</span>
+            </div>
+
+            <span class="research-group">Research Group</span>
+
+        </div>
+    </div>
+
+    <!-- Barra di navigazione -->
+    <nav class="navbar navbar-dark fixed-top bg-dark">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="#">
+                Turin <span class="text-info">Electronics</span>
+            </a>
+
+            <button
+            class="navbar-toggler burger-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainMenu"
+            aria-controls="mainMenu"
+            aria-expanded="false"
+            aria-label="Open navigation menu">
+            <span class="burger-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainMenu">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="#research">Research</a>
+                    <a class="nav-link" href="#people">People</a>
+                    <a class="nav-link" href="#publications">Publications</a>
+                    <a class="nav-link" href="#contact">Contact</a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Hero section -->
+    <main class="container min-vh-100 d-flex align-items-center">
+        <div>
+            <p class="text-info text-uppercase fw-semibold">
+                Materials • Electronics • Computing
+            </p>
+
+            <h1 class="display-2 fw-bold">
+                Turin <span class="text-info">Electronics</span>
+            </h1>
+
+            <p class="lead text-white-50">
+                Where innovative materials become next-generation
+                electronic devices.
+            </p>
+
+            <a class="btn btn-info btn-lg mt-3" href="#research">
+                Explore our research
+            </a>
+        </div>
+    </main>
+    
+    <section id="research" class="py-5">
+        <div class="container">
+            <p class="text-info text-uppercase fw-semibold">
+                What We DO
+                </p>
+            <h2 class="display-4 fw-bold">
+                Research
+            </h2>
+            
+            <p class="lead text-white-50 mb-5">
+                We investigate materials, electronic devices and
+                data-driven technologies for unconventional computing.
+            </p>
+
+            <div class="row g-4">
+
+            <!-- Prima area -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="research-card h-100 p-4">
+
+                    <p class="research-number">01</p>
+
+                    <h3 class="h4 fw-bold">
+                        Materials and Devices
+                    </h3>
+
+                    <p class="text-white-50">
+                        Development and characterization of innovative
+                        materials for next-generation electronic devices.
+                    </p>
+
+                </article>
+            </div>
+
+            <!-- Seconda area -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="research-card h-100 p-4">
+
+                    <p class="research-number">02</p>
+
+                    <h3 class="h4 fw-bold">
+                        Nonlinear Electronics
+                    </h3>
+
+                    <p class="text-white-50">
+                        Experimental investigation of nonlinear electronic
+                        responses in programmable devices.
+                    </p>
+
+                </article>
+            </div>
+
+            <!-- Terza area -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="research-card h-100 p-4">
+
+                    <p class="research-number">03</p>
+
+                    <h3 class="h4 fw-bold">
+                        Data-Driven Computing
+                    </h3>
+
+                    <p class="text-white-50">
+                        Machine learning, digital twins and unconventional
+                        computing applied to electronic systems.
+                    </p>
+
+                </article>
+            </div>
+
+        </div>
+    </div>
+</section>
+            
+    
+    <section id="people" class="py-5">
+    <div class="container">
+
+        <h2 class="display-4 fw-bold">
+            People
+        </h2>
+
+        <p class="lead text-white-50 mb-5">
+            Meet the researchers behind Turin Electronics.
+        </p>
+
+        <div class="row g-4">
+
+            <!-- Marco Fanciulli -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="person-card h-100 p-4">
+
+                    <div class="person-avatar">
+                        MF
+                    </div>
+
+                    <p class="text-info text-uppercase fw-semibold">
+                        Principal Investigator
+                    </p>
+
+                    <h3 class="h4 fw-bold">
+                        Marco Fanciulli
+                    </h3>
+
+                    <p class="text-white-50">
+                        I am a Full Professor of Condensed Matter Physics
+                        at the University of Turin. My research focuses on
+                        nanoelectronics, spintronics, neuroelectronics,
+                        and unconventional computing devices.
+                    </p>
+
+                </article>
+            </div>
+
+            <!-- Francesca Urban -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="person-card h-100 p-4">
+
+                    <div class="person-avatar">
+                        FU
+                    </div>
+
+                    <p class="text-info text-uppercase fw-semibold">
+                        Tenure-Track Researcher
+                    </p>
+
+                    <h3 class="h4 fw-bold">
+                        Francesca Urban
+                    </h3>
+
+                    <p class="text-white-50">
+                        I am a tenure-track researcher in Experimental
+                        Condensed Matter Physics at the University of Turin.
+                        My research focuses on two-dimensional materials,
+                        nanoelectronic devices, and unconventional computing.
+                    </p>
+
+                </article>
+            </div>
+
+            <!-- Federico Balducci -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="person-card h-100 p-4">
+
+                    <div class="person-avatar">
+                        FB
+                    </div>
+
+                    <p class="text-info text-uppercase fw-semibold">
+                        PhD Student
+                    </p>
+
+                    <h3 class="h4 fw-bold">
+                        Federico Balducci
+                    </h3>
+
+                    <p class="text-white-50">
+                        I am a PhD student working on nonlinear electronics,
+                        unconventional computing, and data-driven digital twins.
+                    </p>
+
+                </article>
+            </div>
+
+        </div>
+    </div>
+</section>
+<script>
+    /* Impedisce al browser di ricordare lo scorrimento precedente */
+    if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+    }
+
+    window.addEventListener("load", function () {
+
+        /* Elimina eventuali #research o #people dall'indirizzo */
+        if (window.location.hash) {
+            history.replaceState(
+                null,
+                "",
+                window.location.pathname + window.location.search
+            );
+        }
+
+        /* Porta la pagina all'inizio */
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "auto"
+        });
+
+        const intro = document.getElementById("intro");
+
+        setTimeout(function () {
+            intro.classList.add("intro-hidden");
+        }, 2600);
+    });
+</script>
+
+    <!-- Bootstrap: permette al burger menu di funzionare -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+    
+
+    <!-- Chiusura dell’intro -->
+    <script>
+        window.addEventListener("load", function () {
+            const intro = document.getElementById("intro");
+
+            setTimeout(function () {
+                intro.classList.add("intro-hidden");
+            }, 2600);
+        });
+    </script>
+    
+    <a
+    href="{{ url_for('friends_map') }}"
+    class="btn btn-info">
+    Friends Around the World
+    </a>
+
+
+</body>
+
+</html>
