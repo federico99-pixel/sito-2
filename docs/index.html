@@ -646,6 +646,145 @@ section {
             }
         }
 
+        /* ========================================
+   FOGLIA MINT AL CENTRO DELLA NAVBAR
+======================================== */
+
+.header-mint-leaf {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    width: 58px;
+    height: 58px;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 2;
+    pointer-events: none;
+}
+
+.header-mint-leaf span {
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+
+    background-color: white;
+    border-radius: 1px;
+
+    opacity: 0;
+
+    animation: headerPixelAppear 0.35s ease forwards;
+}
+
+
+/* Forma della foglia */
+
+.header-mint-leaf span:nth-child(1) {
+    left: 40px;
+    top: 0;
+    animation-delay: 0.05s;
+}
+
+.header-mint-leaf span:nth-child(2) {
+    left: 30px;
+    top: 10px;
+    animation-delay: 0.10s;
+}
+
+.header-mint-leaf span:nth-child(3) {
+    left: 40px;
+    top: 10px;
+    animation-delay: 0.15s;
+}
+
+.header-mint-leaf span:nth-child(4) {
+    left: 20px;
+    top: 20px;
+    animation-delay: 0.20s;
+}
+
+.header-mint-leaf span:nth-child(5) {
+    left: 30px;
+    top: 20px;
+    animation-delay: 0.25s;
+}
+
+.header-mint-leaf span:nth-child(6) {
+    left: 20px;
+    top: 30px;
+    animation-delay: 0.30s;
+}
+
+.header-mint-leaf span:nth-child(7) {
+    left: 10px;
+    top: 30px;
+    animation-delay: 0.35s;
+}
+
+.header-mint-leaf span:nth-child(8) {
+    left: 10px;
+    top: 40px;
+    animation-delay: 0.40s;
+}
+
+.header-mint-leaf span:nth-child(9) {
+    left: 0;
+    top: 50px;
+    animation-delay: 0.45s;
+}
+
+
+@keyframes headerPixelAppear {
+
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ========================================
+   TELEFONO
+======================================== */
+
+@media (max-width: 575.98px) {
+
+    .header-mint-leaf {
+        width: 40px;
+        height: 40px;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.72);
+    }
+
+}
+
+
+/* Telefoni molto piccoli */
+
+@media (max-width: 370px) {
+
+    .header-mint-leaf {
+        transform:
+            translate(-50%, -50%)
+            scale(0.62);
+    }
+
+}
+
         @media (prefers-reduced-motion: reduce) {
             html {
                 scroll-behavior: auto;
@@ -942,6 +1081,19 @@ section {
                 </span>
 
             </a>
+
+            <!-- Logo MINT centrale -->
+<div class="header-mint-leaf" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
 
             <button
                 class="navbar-toggler burger-button"
