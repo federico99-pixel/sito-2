@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Turin Electronics Research Group</title>
+    <title>MINT Lab — Matter for Intelligence Laboratory</title>
 
     <!-- Bootstrap CSS -->
     <link
@@ -659,23 +659,256 @@ section {
                 transition-duration: 0.01ms !important;
             }
         }
+
+        /* MINT LAB BRANDING */
+
+        .mint-navbar-text {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .mint-navbar-name {
+            color: var(--white);
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1.05;
+        }
+
+        .mint-navbar-fullname {
+            margin-top: 4px;
+            color: rgba(255,255,255,0.82);
+            font-size: 0.68rem;
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: 0.025em;
+        }
+
+        .mint-hero-fullname {
+            margin: -4px 0 22px;
+            color: var(--white);
+            font-size: clamp(1.15rem, 2.5vw, 1.75rem);
+            font-weight: 300;
+        }
+
+        .mint-pixel-leaf {
+            position: relative;
+            width: 190px;
+            height: 180px;
+            margin: 0 auto 24px;
+        }
+
+        .mint-pixel {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--white);
+            opacity: 0;
+            transform: scale(0);
+            animation: mintPixelIn 0.42s ease forwards;
+        }
+
+        .mint-pixel-01 { left: 140px; top: 0; }
+        .mint-pixel-02 { left: 120px; top: 20px; }
+        .mint-pixel-03 { left: 140px; top: 20px; }
+        .mint-pixel-04 { left: 100px; top: 40px; }
+        .mint-pixel-05 { left: 120px; top: 40px; }
+        .mint-pixel-06 { left: 140px; top: 40px; }
+        .mint-pixel-07 { left: 80px; top: 60px; }
+        .mint-pixel-08 { left: 100px; top: 60px; }
+        .mint-pixel-09 { left: 120px; top: 60px; }
+        .mint-pixel-10 { left: 140px; top: 60px; }
+        .mint-pixel-11 { left: 60px; top: 80px; }
+        .mint-pixel-12 { left: 80px; top: 80px; }
+        .mint-pixel-13 { left: 100px; top: 80px; }
+        .mint-pixel-14 { left: 120px; top: 80px; }
+        .mint-pixel-15 { left: 40px; top: 100px; }
+        .mint-pixel-16 { left: 60px; top: 100px; }
+        .mint-pixel-17 { left: 80px; top: 100px; }
+        .mint-pixel-18 { left: 100px; top: 100px; }
+        .mint-pixel-19 { left: 40px; top: 120px; }
+        .mint-pixel-20 { left: 60px; top: 120px; }
+        .mint-pixel-21 { left: 80px; top: 120px; }
+        .mint-pixel-22 { left: 40px; top: 140px; }
+        .mint-pixel-23 { left: 60px; top: 140px; }
+        .mint-pixel-24 { left: 20px; top: 160px; }
+
+        .mint-pixel-01 { animation-delay: .10s; }
+        .mint-pixel-02 { animation-delay: .15s; }
+        .mint-pixel-03 { animation-delay: .20s; }
+        .mint-pixel-04 { animation-delay: .25s; }
+        .mint-pixel-05 { animation-delay: .30s; }
+        .mint-pixel-06 { animation-delay: .35s; }
+        .mint-pixel-07 { animation-delay: .40s; }
+        .mint-pixel-08 { animation-delay: .45s; }
+        .mint-pixel-09 { animation-delay: .50s; }
+        .mint-pixel-10 { animation-delay: .55s; }
+        .mint-pixel-11 { animation-delay: .60s; }
+        .mint-pixel-12 { animation-delay: .65s; }
+        .mint-pixel-13 { animation-delay: .70s; }
+        .mint-pixel-14 { animation-delay: .75s; }
+        .mint-pixel-15 { animation-delay: .80s; }
+        .mint-pixel-16 { animation-delay: .85s; }
+        .mint-pixel-17 { animation-delay: .90s; }
+        .mint-pixel-18 { animation-delay: .95s; }
+        .mint-pixel-19 { animation-delay: 1.00s; }
+        .mint-pixel-20 { animation-delay: 1.05s; }
+        .mint-pixel-21 { animation-delay: 1.10s; }
+        .mint-pixel-22 { animation-delay: 1.15s; }
+        .mint-pixel-23 { animation-delay: 1.20s; }
+        .mint-pixel-24 { animation-delay: 1.25s; }
+
+        @keyframes mintPixelIn {
+            0% { opacity: 0; transform: scale(0) rotate(20deg); }
+            75% { opacity: 1; transform: scale(1.15) rotate(0); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .mint-intro-name {
+            opacity: 0;
+            color: var(--white);
+            font-size: clamp(2.7rem, 8vw, 5.5rem);
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            animation: mintTextIn .7s ease 1.35s forwards;
+        }
+
+        .mint-intro-name span {
+            font-weight: 300;
+        }
+
+        .mint-intro-fullname {
+            max-width: 90vw;
+            margin-top: 10px;
+            opacity: 0;
+            color: rgba(255,255,255,0.9);
+            font-size: clamp(.72rem, 2vw, 1.05rem);
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            animation: mintTextIn .7s ease 1.7s forwards;
+        }
+
+        @keyframes mintTextIn {
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 575.98px) {
+            .navbar-container {
+                padding-left: 8px;
+                padding-right: 6px;
+                flex-wrap: nowrap;
+            }
+
+            .navbar-logo {
+                width: 58px;
+                height: 58px;
+                padding: 3px;
+                flex: 0 0 auto;
+            }
+
+            .navbar-brand {
+                min-width: 0;
+                gap: 8px;
+                margin-right: 4px;
+            }
+
+            .mint-navbar-name {
+                font-size: 1rem;
+            }
+
+            .mint-navbar-fullname {
+                max-width: 155px;
+                font-size: .50rem;
+                white-space: normal;
+            }
+
+            .burger-button {
+                flex: 0 0 auto;
+                margin-left: auto;
+                margin-right: 8px;
+            }
+
+            .mint-pixel-leaf {
+                transform: scale(.76);
+                margin-top: -18px;
+                margin-bottom: -4px;
+            }
+
+            .mint-intro-fullname {
+                max-width: 300px;
+                line-height: 1.6;
+                letter-spacing: .14em;
+            }
+
+            .hero h1 {
+                font-size: clamp(3rem, 16vw, 4.7rem);
+            }
+
+            .mint-hero-fullname {
+                font-size: 1.05rem;
+                line-height: 1.35;
+            }
+        }
+
+        @media (max-width: 370px) {
+            .navbar-logo {
+                width: 52px;
+                height: 52px;
+            }
+
+            .mint-navbar-fullname {
+                display: none;
+            }
+
+            .mint-navbar-name {
+                font-size: .95rem;
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
-    <!-- Animazione iniziale -->
+    <!-- Animazione iniziale MINT Lab -->
     <div id="intro" aria-hidden="true">
         <div class="intro-content">
 
-            <div class="intro-title">
-                <span class="Turin">Turin</span>
-                <span class="electronics">Electronics</span>
+            <div class="mint-pixel-leaf" aria-hidden="true">
+                <span class="mint-pixel mint-pixel-01"></span>
+                <span class="mint-pixel mint-pixel-02"></span>
+                <span class="mint-pixel mint-pixel-03"></span>
+                <span class="mint-pixel mint-pixel-04"></span>
+                <span class="mint-pixel mint-pixel-05"></span>
+                <span class="mint-pixel mint-pixel-06"></span>
+                <span class="mint-pixel mint-pixel-07"></span>
+                <span class="mint-pixel mint-pixel-08"></span>
+                <span class="mint-pixel mint-pixel-09"></span>
+                <span class="mint-pixel mint-pixel-10"></span>
+                <span class="mint-pixel mint-pixel-11"></span>
+                <span class="mint-pixel mint-pixel-12"></span>
+                <span class="mint-pixel mint-pixel-13"></span>
+                <span class="mint-pixel mint-pixel-14"></span>
+                <span class="mint-pixel mint-pixel-15"></span>
+                <span class="mint-pixel mint-pixel-16"></span>
+                <span class="mint-pixel mint-pixel-17"></span>
+                <span class="mint-pixel mint-pixel-18"></span>
+                <span class="mint-pixel mint-pixel-19"></span>
+                <span class="mint-pixel mint-pixel-20"></span>
+                <span class="mint-pixel mint-pixel-21"></span>
+                <span class="mint-pixel mint-pixel-22"></span>
+                <span class="mint-pixel mint-pixel-23"></span>
+                <span class="mint-pixel mint-pixel-24"></span>
             </div>
 
-            <span class="research-group">
-                Research Group
-            </span>
+            <div class="mint-intro-name">
+                MINT <span>Lab</span>
+            </div>
+
+            <div class="mint-intro-fullname">
+                Matter for Intelligence Laboratory
+            </div>
 
         </div>
     </div>
@@ -699,10 +932,12 @@ section {
                     alt="University of Turin"
                 >
 
-                <span>
-                    Turin
-                    <span class="brand-accent">
-                        Electronics
+                <span class="mint-navbar-text">
+                    <span class="mint-navbar-name">
+                        MINT <span class="brand-accent">Lab</span>
+                    </span>
+                    <span class="mint-navbar-fullname">
+                        Matter for Intelligence Laboratory
                     </span>
                 </span>
 
@@ -776,15 +1011,19 @@ section {
                 </p>
 
                 <h1 class="display-2 fw-bold">
-                    Turin
+                    MINT
                     <span class="text-accent">
-                        Electronics
+                        Lab
                     </span>
                 </h1>
 
+                <p class="mint-hero-fullname">
+                    Matter for Intelligence Laboratory
+                </p>
+
                 <p class="lead section-description">
-                    Where innovative materials become next-generation
-                    electronic devices.
+                    We investigate materials, electronic devices and
+                    data-driven technologies for unconventional computing.
                 </p>
 
                 <div class="d-flex flex-wrap gap-3 mt-4">
@@ -902,7 +1141,7 @@ section {
             </h2>
 
             <p class="lead section-description mb-5">
-                Meet the researchers behind Turin Electronics.
+                Meet the researchers behind MINT Lab.
             </p>
 
             <div class="row g-4">
@@ -1064,7 +1303,7 @@ section {
         <div class="container text-center">
 
             <p class="footer-title">
-                Turin Electronics Research Group
+                MINT Lab — Matter for Intelligence Laboratory
             </p>
 
             <address class="footer-address">
@@ -1085,7 +1324,7 @@ section {
             <hr class="border-light opacity-25 my-4">
 
             <p class="mb-0 small">
-                © 2026 Turin Electronics Research Group
+                © 2026 MINT Lab — Matter for Intelligence Laboratory
             </p>
 
         </div>
@@ -1117,7 +1356,7 @@ section {
 
             setTimeout(function () {
                 intro.classList.add("intro-hidden");
-            }, 2600);
+            }, 3400);
         });
 
         /* Chiusura automatica del burger menu */
