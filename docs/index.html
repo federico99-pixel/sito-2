@@ -648,96 +648,89 @@ section {
 
         /* ========================================
    FOGLIA MINT AL CENTRO DELLA NAVBAR
+   stessa forma pixel dell'intro
 ======================================== */
 
 .header-mint-leaf {
     position: absolute;
     left: 50%;
     top: 50%;
-
-    width: 58px;
-    height: 58px;
-
-    transform: translate(-50%, -50%);
-
     z-index: 2;
+
+    width: 190px;
+    height: 180px;
+
+    transform: translate(-50%, -50%) scale(0.31);
+    transform-origin: center;
+
     pointer-events: none;
 }
 
-.header-mint-leaf span {
+.header-mint-pixel {
     position: absolute;
+    width: 20px;
+    height: 20px;
 
-    width: 10px;
-    height: 10px;
-
-    background-color: white;
-    border-radius: 1px;
+    background-color: var(--white);
 
     opacity: 0;
+    transform: scale(0);
 
-    animation: headerPixelAppear 0.35s ease forwards;
+    animation: headerMintPixelIn 0.35s ease forwards;
 }
 
+/* Stessa silhouette della foglia usata nell'intro */
+.header-mint-pixel-01 { left: 140px; top: 0; }
+.header-mint-pixel-02 { left: 120px; top: 20px; }
+.header-mint-pixel-03 { left: 140px; top: 20px; }
+.header-mint-pixel-04 { left: 100px; top: 40px; }
+.header-mint-pixel-05 { left: 120px; top: 40px; }
+.header-mint-pixel-06 { left: 140px; top: 40px; }
+.header-mint-pixel-07 { left: 80px; top: 60px; }
+.header-mint-pixel-08 { left: 100px; top: 60px; }
+.header-mint-pixel-09 { left: 120px; top: 60px; }
+.header-mint-pixel-10 { left: 140px; top: 60px; }
+.header-mint-pixel-11 { left: 60px; top: 80px; }
+.header-mint-pixel-12 { left: 80px; top: 80px; }
+.header-mint-pixel-13 { left: 100px; top: 80px; }
+.header-mint-pixel-14 { left: 120px; top: 80px; }
+.header-mint-pixel-15 { left: 40px; top: 100px; }
+.header-mint-pixel-16 { left: 60px; top: 100px; }
+.header-mint-pixel-17 { left: 80px; top: 100px; }
+.header-mint-pixel-18 { left: 100px; top: 100px; }
+.header-mint-pixel-19 { left: 40px; top: 120px; }
+.header-mint-pixel-20 { left: 60px; top: 120px; }
+.header-mint-pixel-21 { left: 80px; top: 120px; }
+.header-mint-pixel-22 { left: 40px; top: 140px; }
+.header-mint-pixel-23 { left: 60px; top: 140px; }
+.header-mint-pixel-24 { left: 20px; top: 160px; }
 
-/* Forma della foglia */
+.header-mint-pixel-01 { animation-delay: .05s; }
+.header-mint-pixel-02 { animation-delay: .07s; }
+.header-mint-pixel-03 { animation-delay: .09s; }
+.header-mint-pixel-04 { animation-delay: .11s; }
+.header-mint-pixel-05 { animation-delay: .13s; }
+.header-mint-pixel-06 { animation-delay: .15s; }
+.header-mint-pixel-07 { animation-delay: .17s; }
+.header-mint-pixel-08 { animation-delay: .19s; }
+.header-mint-pixel-09 { animation-delay: .21s; }
+.header-mint-pixel-10 { animation-delay: .23s; }
+.header-mint-pixel-11 { animation-delay: .25s; }
+.header-mint-pixel-12 { animation-delay: .27s; }
+.header-mint-pixel-13 { animation-delay: .29s; }
+.header-mint-pixel-14 { animation-delay: .31s; }
+.header-mint-pixel-15 { animation-delay: .33s; }
+.header-mint-pixel-16 { animation-delay: .35s; }
+.header-mint-pixel-17 { animation-delay: .37s; }
+.header-mint-pixel-18 { animation-delay: .39s; }
+.header-mint-pixel-19 { animation-delay: .41s; }
+.header-mint-pixel-20 { animation-delay: .43s; }
+.header-mint-pixel-21 { animation-delay: .45s; }
+.header-mint-pixel-22 { animation-delay: .47s; }
+.header-mint-pixel-23 { animation-delay: .49s; }
+.header-mint-pixel-24 { animation-delay: .51s; }
 
-.header-mint-leaf span:nth-child(1) {
-    left: 40px;
-    top: 0;
-    animation-delay: 0.05s;
-}
-
-.header-mint-leaf span:nth-child(2) {
-    left: 30px;
-    top: 10px;
-    animation-delay: 0.10s;
-}
-
-.header-mint-leaf span:nth-child(3) {
-    left: 40px;
-    top: 10px;
-    animation-delay: 0.15s;
-}
-
-.header-mint-leaf span:nth-child(4) {
-    left: 20px;
-    top: 20px;
-    animation-delay: 0.20s;
-}
-
-.header-mint-leaf span:nth-child(5) {
-    left: 30px;
-    top: 20px;
-    animation-delay: 0.25s;
-}
-
-.header-mint-leaf span:nth-child(6) {
-    left: 20px;
-    top: 30px;
-    animation-delay: 0.30s;
-}
-
-.header-mint-leaf span:nth-child(7) {
-    left: 10px;
-    top: 30px;
-    animation-delay: 0.35s;
-}
-
-.header-mint-leaf span:nth-child(8) {
-    left: 10px;
-    top: 40px;
-    animation-delay: 0.40s;
-}
-
-.header-mint-leaf span:nth-child(9) {
-    left: 0;
-    top: 50px;
-    animation-delay: 0.45s;
-}
-
-
-@keyframes headerPixelAppear {
-
+@keyframes headerMintPixelIn {
     0% {
         opacity: 0;
         transform: scale(0);
@@ -745,7 +738,7 @@ section {
 
     70% {
         opacity: 1;
-        transform: scale(1.2);
+        transform: scale(1.15);
     }
 
     100% {
@@ -754,38 +747,21 @@ section {
     }
 }
 
-
-/* ========================================
-   TELEFONO
-======================================== */
-
+/* Telefono */
 @media (max-width: 575.98px) {
-
     .header-mint-leaf {
-        width: 40px;
-        height: 40px;
-
-        transform:
-            translate(-50%, -50%)
-            scale(0.72);
+        transform: translate(-50%, -50%) scale(0.22);
     }
-
 }
-
 
 /* Telefoni molto piccoli */
-
 @media (max-width: 370px) {
-
     .header-mint-leaf {
-        transform:
-            translate(-50%, -50%)
-            scale(0.62);
+        transform: translate(-50%, -50%) scale(0.18);
     }
-
 }
 
-        @media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {
             html {
                 scroll-behavior: auto;
             }
@@ -1081,19 +1057,33 @@ section {
                 </span>
 
             </a>
-
-            <!-- Logo MINT centrale -->
-<div class="header-mint-leaf" aria-hidden="true">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
+            <!-- Foglia MINT centrale: stessa identità grafica dell'intro -->
+            <div class="header-mint-leaf" aria-hidden="true">
+                <span class="header-mint-pixel header-mint-pixel-01"></span>
+                <span class="header-mint-pixel header-mint-pixel-02"></span>
+                <span class="header-mint-pixel header-mint-pixel-03"></span>
+                <span class="header-mint-pixel header-mint-pixel-04"></span>
+                <span class="header-mint-pixel header-mint-pixel-05"></span>
+                <span class="header-mint-pixel header-mint-pixel-06"></span>
+                <span class="header-mint-pixel header-mint-pixel-07"></span>
+                <span class="header-mint-pixel header-mint-pixel-08"></span>
+                <span class="header-mint-pixel header-mint-pixel-09"></span>
+                <span class="header-mint-pixel header-mint-pixel-10"></span>
+                <span class="header-mint-pixel header-mint-pixel-11"></span>
+                <span class="header-mint-pixel header-mint-pixel-12"></span>
+                <span class="header-mint-pixel header-mint-pixel-13"></span>
+                <span class="header-mint-pixel header-mint-pixel-14"></span>
+                <span class="header-mint-pixel header-mint-pixel-15"></span>
+                <span class="header-mint-pixel header-mint-pixel-16"></span>
+                <span class="header-mint-pixel header-mint-pixel-17"></span>
+                <span class="header-mint-pixel header-mint-pixel-18"></span>
+                <span class="header-mint-pixel header-mint-pixel-19"></span>
+                <span class="header-mint-pixel header-mint-pixel-20"></span>
+                <span class="header-mint-pixel header-mint-pixel-21"></span>
+                <span class="header-mint-pixel header-mint-pixel-22"></span>
+                <span class="header-mint-pixel header-mint-pixel-23"></span>
+                <span class="header-mint-pixel header-mint-pixel-24"></span>
+            </div>
 
             <button
                 class="navbar-toggler burger-button"
